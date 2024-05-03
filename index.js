@@ -32,6 +32,10 @@ app.use(bodyParser.json());
 
 app.use("/", require("./routers"))
 
-app.listen(3001, () => {
-    console.log("listening at 3001")
-})
+if(process.env.NODE_ENV !== 'test'){
+    app.listen(3001, () => {
+        console.log("listening at 3001")
+    })
+}
+
+module.exports = app
