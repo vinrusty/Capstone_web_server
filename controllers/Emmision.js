@@ -103,7 +103,7 @@ exports.getRecordsByYear = async (req, res) => {
     }
 
     const monthlyStats = [];
-    const fieldsToExclude = ['year'];
+    const fieldsToExclude = ['year', 'month'];
 
     // Create a new object by excluding the specified fields
     const modifiedBody = Object.keys(req.body)
@@ -171,7 +171,6 @@ exports.getRecordsByYear = async (req, res) => {
 exports.getRecordsByMonth = async (req, res) => {
   try {
     const { year, month } = req.body;
-    console.log(req.body)
     if (!year || !month) {
       return res.status(400).json({ error: 'Year and month are required' });
     }
