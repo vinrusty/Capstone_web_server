@@ -10,5 +10,6 @@ router.post("/get-user-stats", emmisionController.fetchEmissionStatistics)
 router.post("/get-records-year", emmisionController.getRecordsByYear)
 router.post("/get-records-month", emmisionController.getRecordsByMonth)
 router.post("/get-records-product", emmisionController.getStatsByFilterParams)
+router.post("/get-sensor-data", emmisionController.getSensorData)
 
 module.exports = router

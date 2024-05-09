@@ -1,6 +1,6 @@
 const Emmision = require('../models/ApplicanceEmmision')
 const User = require("../models/Users")
-const moment = require('moment');
+const Sensor = require("../models/SensorData")
 
 exports.recordEmmision = async(req, res) => {
     try{
@@ -319,5 +319,15 @@ exports.getStatsByFilterParams = async(req, res) => {
   }
   catch(err){
     res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+exports.getSensorData = async(req, res) => {
+  try{
+    const sensorData = await Sensor.find({email: req.email})
+    res.json(sensorData)
+  }
+  catch(err){
+    res.status(500).json("error")
   }
 }
